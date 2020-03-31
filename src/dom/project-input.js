@@ -1,9 +1,9 @@
-const input = document.querySelector('.project-input');
+const projectInput = document.querySelector('.project-input');
 
-const getProjectInput = () => input.value;
+const getProjectInput = () => projectInput.value;
 
-const clearField = () => {
-  input.value = '';
+const clearProjectField = () => {
+  projectInput.value = '';
 };
 
-export { getProjectInput, clearField };
+export { getProjectInput, clearProjectField };

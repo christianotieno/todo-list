@@ -86,51 +86,14 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/controller.js":
-/*!***************************!*\
-  !*** ./src/controller.js ***!
-  \***************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project */ \"./src/project.js\");\n\n\nconst addProject = (title) => {\n  const project = new _project__WEBPACK_IMPORTED_MODULE_0__[\"default\"](title);\n  return project;\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (addProject);\n\n//# sourceURL=webpack:///./src/controller.js?");
-
-/***/ }),
-
 /***/ "./src/dom/dom.js":
 /*!************************!*\
   !*** ./src/dom/dom.js ***!
   \************************/
 /*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _controller__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../controller */ \"./src/controller.js\");\n/* harmony import */ var _update_view__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./update-view */ \"./src/dom/update-view.js\");\n/* harmony import */ var _project_input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./project-input */ \"./src/dom/project-input.js\");\n\n\n\n\nconst addBtn = document.getElementById('add-project');\n\naddBtn.onclick = () => {\n  const projectInput = Object(_project_input__WEBPACK_IMPORTED_MODULE_2__[\"getProjectInput\"])();\n  const li = document.createElement('li');\n  li.innerHTML = Object(_controller__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(projectInput).title;\n  const projectList = document.querySelector('.project-list');\n  Object(_update_view__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(projectList, li);\n  Object(_project_input__WEBPACK_IMPORTED_MODULE_2__[\"clearField\"])();\n};\n\n//# sourceURL=webpack:///./src/dom/dom.js?");
-
-/***/ }),
-
-/***/ "./src/dom/project-input.js":
-/*!**********************************!*\
-  !*** ./src/dom/project-input.js ***!
-  \**********************************/
-/*! exports provided: getProjectInput, clearField */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getProjectInput\", function() { return getProjectInput; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"clearField\", function() { return clearField; });\nconst input = document.querySelector('.project-input');\n\nconst getProjectInput = () => input.value;\n\nconst clearField = () => {\n  input.value = '';\n};\n\n\n\n//# sourceURL=webpack:///./src/dom/project-input.js?");
-
-/***/ }),
-
-/***/ "./src/dom/update-view.js":
-/*!********************************!*\
-  !*** ./src/dom/update-view.js ***!
-  \********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nconst updateView = (container, value) => {\n  container.appendChild(value);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (updateView);\n\n//# sourceURL=webpack:///./src/dom/update-view.js?");
+eval("throw new Error(\"Module parse failed: Unexpected token (26:7)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n| addTodoButton.onclick = () => {\\n|   const todoInput = getTodoInput();\\n>   cons todoStore = new Todo(todoInput);\\n| };\");\n\n//# sourceURL=webpack:///./src/dom/dom.js?");
 
 /***/ }),
 
@@ -154,18 +117,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mai
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/main.scss?");
-
-/***/ }),
-
-/***/ "./src/project.js":
-/*!************************!*\
-  !*** ./src/project.js ***!
-  \************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nclass Project {\n  constructor(title) {\n    this.title = title;\n  }\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Project);\n\n//# sourceURL=webpack:///./src/project.js?");
 
 /***/ })
 

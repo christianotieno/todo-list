@@ -4,23 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-<link href="main.7d049ff611339b23fe61.css" rel="stylesheet"></head>
+<link href="main.f193a5e46aa5b76fcce5.css" rel="stylesheet"></head>
 <body>
   <div class="project-container">
     <div>
       <h3>Projects</h3>
       <input type="text" class="project-input">
-      <button id="add-project">Add Project</button>
-      <ul class="project-list">
-        <li>Get Started</li>
-      </ul>
-    </div>
-    <div class="todo-list">
-      <h3>To-do's</h3>
-      <ul>
-        <li>Test ToDo</li>
+      <button id="add-project" class="dropbtn">Add Project</button>
+      <ul class="project-list dropdown">
+        <div class="dropdown-content">
+          <li>Get Started</li>
+          <div class="todo-list">
+            <button class = "" id="add-todo">Add Your Todos here</button>
+            <form id="todo-form">
+              <br>
+              Title: <input type="text" name="title" id="todo-title"><br><br>
+              Description: <input type="text" name="description" id="todo-description"><br><br>
+              Date Due: <input type="date" name="duedate" id="todo-date"><br><br>
+              <p id="todo-priority">
+                Priority<br>
+                <input type="radio" id="very-important" name="priority" value="very-important">
+                <label for="very-important">Very important</label><br>
+                
+                <input type="radio" id="important" name="priority" value="important">
+                <label for="important">Important</label><br>
+                
+                <input type="radio" id="not-important" name="priority" value="not-important">
+                <label for="not-important">Not important</label><br>
+                
+                <input type="radio" id="other" name="priority" value="other">
+                <label for="other">Other</label><br><br>
+              </p>
+              <input type="button" onclick="myFunction()" value="Add to Todo list">
+            </form>
+            <ul>
+              <li>Test todos</li>
+              <li>Test todos</li>
+              <li>Test todos</li>
+            </ul>
+          </div>
+        </div>
       </ul>
     </div>
   </div>
-<script src="main.40fe6e6652cf49fff328.js"></script></body>
+<script src="main.9c052b009b957bb2e451.js"></script></body>
 </html>

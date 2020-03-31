@@ -1,5 +1,2 @@
-const testFunction = function () {
-  console.log('test message');
-};
-
-testFunction();
+import './css/style.css';
+import './dom/dom';

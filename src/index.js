@@ -1,2 +1,2 @@
-import './css/style.css';
+import './main.scss';
 import './dom/dom';

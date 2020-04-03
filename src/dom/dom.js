@@ -59,6 +59,9 @@ toggleProject.addEventListener('click', (element) => {
     dropdown.style.display = 'block';
 
     updateProjectList(element.target.id, listOfProjects);
+    clearTodoField();
+    document.getElementById('update-todo').removeAttribute('data-id');
+    document.getElementById('update-todo').classList.add('d-none');
   }
 });
 

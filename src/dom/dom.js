@@ -20,7 +20,6 @@ addProjectButton.onclick = () => {
   const projectInput = getProjectInput();
   const project = addProject(projectInput);
   listOfProjects.addToProjects(project);
-  console.log(listOfProjects);
   updateView(project);
   clearProjectField();
 };
@@ -31,19 +30,18 @@ addTodoButton.onclick = () => {
     todoInput.todoDescriptionInput, todoInput.todoDateInput, todoInput.todoPriorityInput);
   const listItem = document.createElement('li');
   listItem.innerHTML = todoStore.title;
-  console.log(todoStore);
+  // console.log(todoStore);
   document.getElementById('todo-list').appendChild(listItem);
   const projectId = addTodoButton.parentElement.parentElement.parentElement.parentElement.id;
 
   for (let i = 0; i < listOfProjects.projectList.length; i++) {
-    if (projectId === listOfProjects.projectList[i].id) {
+    if (projectId === listOfProjects.projectList[i].id.toString()) {
       listOfProjects.projectList[i].addTodo(todoStore);
     }
   }
-
+  console.log(listOfProjects);
   clearTodoField();
 };
-// console.log(projectId);
 
 updateView(addProject('Get Started'));
 

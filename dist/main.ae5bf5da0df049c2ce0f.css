@@ -11,3 +11,6 @@
 .project-list li:hover {
   cursor: pointer; }
 
+.d-none {
+  display: none; }
+

@@ -3,7 +3,15 @@ const getTodoInput = () => {
   const todoTitleInput = document.querySelector('#todo-title').value;
   const todoDescriptionInput = document.querySelector('#todo-description').value;
   const todoDateInput = document.querySelector('#todo-date').value;
-  const todoPriorityInput = document.querySelector('#todo-priority').value;
+  let todoPriorityInput = '';
+
+  const radioInputs = document.getElementsByName('priority');
+  
+  radioInputs.forEach(input => {
+    if (input.checked) {
+      todoPriorityInput = input.value;
+    }
+  })
 
   return {
     todoTitleInput, todoDescriptionInput, todoDateInput, todoPriorityInput,

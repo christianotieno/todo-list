@@ -1,5 +1,5 @@
 import addProject from '../controller';
-import updateView from './update-view';
+import { updateView, updateProjectList } from './update-view';
 import { getProjectInput, clearProjectField } from './project-input';
 import { getTodoInput, clearTodoField } from './todo-input';
 import { toggleTodoForm } from './todo-view';
@@ -9,6 +9,8 @@ import Todo from '../todo';
 const addProjectButton = document.getElementById('add-project');
 const addTodoButton = document.getElementById('add-todo');
 const toggleForm = document.getElementById('toggle-todo-form');
+const todoList = document.getElementById('todo-list');
+const updateTodo = document.getElementById('update-todo');
 
 const listOfProjects = new ProjectStorage();
 
@@ -30,20 +32,23 @@ addTodoButton.onclick = () => {
     todoInput.todoDescriptionInput, todoInput.todoDateInput, todoInput.todoPriorityInput);
   const listItem = document.createElement('li');
   listItem.innerHTML = todoStore.title;
-  // console.log(todoStore);
+
   document.getElementById('todo-list').appendChild(listItem);
   const projectId = addTodoButton.parentElement.parentElement.parentElement.parentElement.id;
-
-  for (let i = 0; i < listOfProjects.projectList.length; i++) {
-    if (projectId === listOfProjects.projectList[i].id.toString()) {
-      listOfProjects.projectList[i].addTodo(todoStore);
+  const project = addTodoButton.parentElement.parentElement.parentElement.parentElement;
+  listOfProjects.projectList.map(project => {
+    if (projectId === project.id.toString()) {
+      project.addTodo(todoStore);
     }
-  }
-  console.log(listOfProjects);
+  });
+
+  updateProjectList(project.id, listOfProjects);
   clearTodoField();
 };
 
-updateView(addProject('Get Started'));
+const defaultProject = addProject('Get Started');
+updateView(defaultProject);
+listOfProjects.addToProjects(defaultProject)
 
 const toggleProject = document.querySelector('.project-list');
 
@@ -52,5 +57,43 @@ toggleProject.addEventListener('click', (element) => {
     const dropdown = document.querySelector('.dropdown-content');
     element.target.appendChild(dropdown);
     dropdown.style.display = 'block';
+
+    updateProjectList(element.target.id, listOfProjects);
   }
 });
+
+todoList.addEventListener('click', (element) => {
+
+  listOfProjects.projectList.map(project => {
+    project.todos.map(todo => {
+      if (todo.id.toString() === element.target.id) {
+        document.querySelector('#todo-title').value = todo.title;
+        document.querySelector('#todo-description').value = todo.description;
+        document.querySelector('#todo-date').value = todo.dueDate;
+        document.getElementById('update-todo').classList.remove('d-none');
+        document.getElementById('update-todo').setAttribute('data-id', todo.id.toString());
+      }
+    });
+  });
+});
+
+updateTodo.onclick = () => {
+
+  listOfProjects.projectList.map(project => {
+    project.todos.map(todo => {
+      if (todo.id.toString() === updateTodo.dataset.id) {
+        const todoUpdated = getTodoInput();
+        todo.title = todoUpdated.todoTitleInput;
+        todo.description = todoUpdated.todoDescriptionInput;
+        todo.dueDate = todoUpdated.todoDateInput;
+        todo.priority = todoUpdated.todoPriorityInput;
+
+        const projectId = addTodoButton.parentElement.parentElement.parentElement.parentElement.id;
+        updateProjectList(projectId, listOfProjects);
+        clearTodoField();
+        document.getElementById('update-todo').removeAttribute('data-id');
+        document.getElementById('update-todo').classList.add('d-none');
+      }
+    });
+  });
+}

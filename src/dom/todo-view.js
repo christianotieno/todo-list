@@ -9,6 +9,6 @@ const toggleTodoForm = () => {
     form.style.display = 'block';
     toggleForm.innerHTML = 'Close form';
   }
-}
+};
 
 export { toggleTodoForm };

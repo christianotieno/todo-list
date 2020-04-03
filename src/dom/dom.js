@@ -15,29 +15,36 @@ toggleForm.onclick = () => {
 
 addProjectButton.onclick = () => {
   const projectInput = getProjectInput();
-  const project = addProject(projectInput)
-  
+  const project = addProject(projectInput);
+
   updateView(project);
   clearProjectField();
 };
 
 addTodoButton.onclick = () => {
   const todoInput = getTodoInput();
-  const todoStore = new Todo(todoInput);
-  const projectId = addTodoButton.parentElement.parentElement.previousElementSibling.id;
+  const todoStore = new Todo(todoInput.todoTitleInput, todoInput.todoDescriptionInput, todoInput.todoDateInput, todoInput.todoPriorityInput);
 
+  const listItem = document.createElement('li');
+  listItem.innerHTML = todoStore.title;
+  console.log(todoStore);
+  // const todoData = document.getElementById('todo-list').appendChild(listItem);
+  // const projectId = addTodoButton.parentElement.parentElement.parentElement.parentElement.id;
 
-  console.log(projectId);
+  // console.log(projectId);
 
   clearTodoField();
 };
+
 
 updateView(addProject('Get Started'));
 
 const toggleProject = document.querySelector('.project-list');
 
 toggleProject.addEventListener('click', (element) => {
-  const dropdown = document.querySelector('.dropdown-content');
-  element.target.appendChild(dropdown);
-  dropdown.style.display = 'block';
+  if (element.target.parentElement === toggleProject) {
+    const dropdown = document.querySelector('.dropdown-content');
+    element.target.appendChild(dropdown);
+    dropdown.style.display = 'block';
+  }
 });

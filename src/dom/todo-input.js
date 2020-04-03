@@ -1,17 +1,19 @@
-let todoTitleInput = document.querySelector('#todo-title').value;
-let todoDescriptionInput = document.querySelector('#todo-description').value;
-let todoDateInput = document.querySelector('#todo-date').value;
-let todoPriorityInput = document.querySelector('#todo-priority').value;
 
-const getTodoInput = () => ({
-  todoTitleInput, todoDescriptionInput, todoDateInput, todoPriorityInput,
-});
+const getTodoInput = () => {
+  const todoTitleInput = document.querySelector('#todo-title').value;
+  const todoDescriptionInput = document.querySelector('#todo-description').value;
+  const todoDateInput = document.querySelector('#todo-date').value;
+  const todoPriorityInput = document.querySelector('#todo-priority').value;
+
+  return {
+    todoTitleInput, todoDescriptionInput, todoDateInput, todoPriorityInput,
+  };
+};
 
 const clearTodoField = () => {
-  todoTitleInput = '';
-  todoDescriptionInput = '';
-  todoDateInput = '';
-  todoPriorityInput = '';
+  document.querySelector('#todo-title').value = '';
+  document.querySelector('#todo-description').value = '';
+  document.querySelector('#todo-date').value = '';
 };
 
 export { getTodoInput, clearTodoField };

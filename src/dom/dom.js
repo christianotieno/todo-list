@@ -3,11 +3,14 @@ import updateView from './update-view';
 import { getProjectInput, clearProjectField } from './project-input';
 import { getTodoInput, clearTodoField } from './todo-input';
 import { toggleTodoForm } from './todo-view';
+import ProjectStorage from '../projectStorage';
 import Todo from '../todo';
 
 const addProjectButton = document.getElementById('add-project');
 const addTodoButton = document.getElementById('add-todo');
 const toggleForm = document.getElementById('toggle-todo-form');
+
+const listOfProjects = new ProjectStorage();
 
 toggleForm.onclick = () => {
   toggleTodoForm();
@@ -16,26 +19,31 @@ toggleForm.onclick = () => {
 addProjectButton.onclick = () => {
   const projectInput = getProjectInput();
   const project = addProject(projectInput);
-
+  listOfProjects.addToProjects(project);
+  console.log(listOfProjects);
   updateView(project);
   clearProjectField();
 };
 
 addTodoButton.onclick = () => {
   const todoInput = getTodoInput();
-  const todoStore = new Todo(todoInput.todoTitleInput, todoInput.todoDescriptionInput, todoInput.todoDateInput, todoInput.todoPriorityInput);
-
+  const todoStore = new Todo(todoInput.todoTitleInput,
+    todoInput.todoDescriptionInput, todoInput.todoDateInput, todoInput.todoPriorityInput);
   const listItem = document.createElement('li');
   listItem.innerHTML = todoStore.title;
   console.log(todoStore);
-  // const todoData = document.getElementById('todo-list').appendChild(listItem);
-  // const projectId = addTodoButton.parentElement.parentElement.parentElement.parentElement.id;
+  document.getElementById('todo-list').appendChild(listItem);
+  const projectId = addTodoButton.parentElement.parentElement.parentElement.parentElement.id;
 
-  // console.log(projectId);
+  for (let i = 0; i < listOfProjects.projectList.length; i++) {
+    if (projectId === listOfProjects.projectList[i].id) {
+      listOfProjects.projectList[i].addTodo(todoStore);
+    }
+  }
 
   clearTodoField();
 };
-
+// console.log(projectId);
 
 updateView(addProject('Get Started'));
 

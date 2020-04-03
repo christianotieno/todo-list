@@ -106,7 +106,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _pro
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _controller__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../controller */ \"./src/controller.js\");\n/* harmony import */ var _update_view__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./update-view */ \"./src/dom/update-view.js\");\n/* harmony import */ var _project_input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./project-input */ \"./src/dom/project-input.js\");\n/* harmony import */ var _todo_input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./todo-input */ \"./src/dom/todo-input.js\");\n/* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../todo */ \"./src/todo.js\");\n\n\n\n\n\n\nconst addProjectButton = document.getElementById('add-project');\nconst addTodoButton = document.getElementById('add-todo');\n\naddProjectButton.onclick = () => {\n  const projectInput = Object(_project_input__WEBPACK_IMPORTED_MODULE_2__[\"getProjectInput\"])();\n  const btn = document.createElement('button');\n  btn.innerHTML = '';\n\n  const li = document.createElement('li');\n  btn.innerHTML = Object(_controller__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(projectInput).title;\n  li.appendChild(btn);\n\n  const projectList = document.querySelector('.project-list');\n  Object(_update_view__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(projectList, li);\n  Object(_project_input__WEBPACK_IMPORTED_MODULE_2__[\"clearProjectField\"])();\n};\n\naddTodoButton.onclick = () => {\n  const todoInput = Object(_todo_input__WEBPACK_IMPORTED_MODULE_3__[\"getTodoInput\"])();\n  const todoStore = new _todo__WEBPACK_IMPORTED_MODULE_4__[\"default\"](todoInput);\n  // push the todo values to its parent project\n  Object(_todo_input__WEBPACK_IMPORTED_MODULE_3__[\"clearTodoField\"])();\n};\n\n//# sourceURL=webpack:///./src/dom/dom.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _controller__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../controller */ \"./src/controller.js\");\n/* harmony import */ var _update_view__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./update-view */ \"./src/dom/update-view.js\");\n/* harmony import */ var _project_input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./project-input */ \"./src/dom/project-input.js\");\n/* harmony import */ var _todo_input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./todo-input */ \"./src/dom/todo-input.js\");\n/* harmony import */ var _todo_view__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./todo-view */ \"./src/dom/todo-view.js\");\n/* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../todo */ \"./src/todo.js\");\n\n\n\n\n\n\n\nconst addProjectButton = document.getElementById('add-project');\nconst addTodoButton = document.getElementById('add-todo');\nconst toggleForm = document.getElementById('toggle-todo-form');\n\ntoggleForm.onclick = () => {\n  Object(_todo_view__WEBPACK_IMPORTED_MODULE_4__[\"toggleTodoForm\"])();\n};\n\naddProjectButton.onclick = () => {\n  const projectInput = Object(_project_input__WEBPACK_IMPORTED_MODULE_2__[\"getProjectInput\"])();\n  const project = Object(_controller__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(projectInput)\n  \n  Object(_update_view__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(project);\n  Object(_project_input__WEBPACK_IMPORTED_MODULE_2__[\"clearProjectField\"])();\n};\n\naddTodoButton.onclick = () => {\n  const todoInput = Object(_todo_input__WEBPACK_IMPORTED_MODULE_3__[\"getTodoInput\"])();\n  const todoStore = new _todo__WEBPACK_IMPORTED_MODULE_5__[\"default\"](todoInput);\n  const projectId = addTodoButton.parentElement.parentElement.previousElementSibling.id;\n\n\n  console.log(projectId);\n\n  Object(_todo_input__WEBPACK_IMPORTED_MODULE_3__[\"clearTodoField\"])();\n};\n\nObject(_update_view__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(Object(_controller__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('Get Started'));\n\nconst toggleProject = document.querySelector('.project-list');\n\ntoggleProject.addEventListener('click', (element) => {\n  const dropdown = document.querySelector('.dropdown-content');\n  element.target.appendChild(dropdown);\n  dropdown.style.display = 'block';\n});\n\n//# sourceURL=webpack:///./src/dom/dom.js?");
 
 /***/ }),
 
@@ -134,6 +134,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
+/***/ "./src/dom/todo-view.js":
+/*!******************************!*\
+  !*** ./src/dom/todo-view.js ***!
+  \******************************/
+/*! exports provided: toggleTodoForm */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"toggleTodoForm\", function() { return toggleTodoForm; });\nconst toggleTodoForm = () => {\n  const form = document.getElementById('todo-form');\n  const toggleForm = document.getElementById('toggle-todo-form');\n\n  if (form.style.display === 'block') {\n    form.style.display = 'none';\n    toggleForm.innerHTML = 'Add Your Todos here';\n  } else {\n    form.style.display = 'block';\n    toggleForm.innerHTML = 'Close form';\n  }\n}\n\n\n\n//# sourceURL=webpack:///./src/dom/todo-view.js?");
+
+/***/ }),
+
 /***/ "./src/dom/update-view.js":
 /*!********************************!*\
   !*** ./src/dom/update-view.js ***!
@@ -142,7 +154,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nconst updateView = (container, value) => {\n  container.appendChild(value);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (updateView);\n\n//# sourceURL=webpack:///./src/dom/update-view.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nconst updateView = (project) => {\n  const li = document.createElement('li');\n  li.innerHTML = project.title;\n  li.id = project.id;\n  li.classList.add('toggle-project');\n  const container = document.querySelector('.project-list');\n\n  container.appendChild(li);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (updateView);\n\n//# sourceURL=webpack:///./src/dom/update-view.js?");
 
 /***/ }),
 
@@ -154,7 +166,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nconst updateView = (container
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./main.scss */ \"./src/main.scss\");\n/* harmony import */ var _main_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_main_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _dom_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dom/dom */ \"./src/dom/dom.js\");\n\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./main.scss */ \"./src/main.scss\");\n/* harmony import */ var _main_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_main_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _dom_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dom/dom */ \"./src/dom/dom.js\");\n\n\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -177,7 +189,7 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nclass Project {\n  constructor(title) {\n    this.title = title;\n    this.todos = [];\n  }\n\n  addTodo(todo) {\n    this.todos.push(todo);\n  }\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Project);\n\n//# sourceURL=webpack:///./src/project.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nclass Project {\n  constructor(title) {\n    this.id = Math.floor(Math.random() * 10000);\n    this.title = title;\n    this.todos = [];\n  }\n\n  addTodo(todo) {\n    this.todos.push(todo);\n  }\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Project);\n\n//# sourceURL=webpack:///./src/project.js?");
 
 /***/ }),
 
@@ -189,7 +201,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nclass Project {\n  constructo
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nclass Todo {\n  constructor(title, description, dueDate, priority) {\n    this.title = title;\n    this.description = description;\n    this.dueDate = dueDate;\n    this.priority = priority;\n  }\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Todo);\n\n//# sourceURL=webpack:///./src/todo.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nclass Todo {\n  constructor(title, description, dueDate, priority) {\n    this.id = Math.floor(Math.random() * 100000);\n    this.title = title;\n    this.description = description;\n    this.dueDate = dueDate;\n    this.priority = priority;\n  }\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Todo);\n\n//# sourceURL=webpack:///./src/todo.js?");
 
 /***/ })
 

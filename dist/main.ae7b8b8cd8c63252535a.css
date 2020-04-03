@@ -1,0 +1,13 @@
+.project-container {
+  display: flex;
+  justify-content: space-around; }
+
+#todo-form {
+  display: none; }
+
+.dropdown-content {
+  display: none; }
+
+.project-list li:hover {
+  cursor: pointer; }
+

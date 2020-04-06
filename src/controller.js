@@ -1,5 +1,5 @@
 import Project from './project';
-import projectStorage from './projectStorage';
+import projectStorage from './project-storage';
 
 const addProject = (title) => {
   const project = new Project(title);

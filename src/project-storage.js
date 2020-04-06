@@ -1,5 +1,5 @@
-import Project from "./project";
-import Todo from "./todo";
+import Project from './project';
+import Todo from './todo';
 
 class ProjectStorage {
   constructor() {
@@ -7,9 +7,9 @@ class ProjectStorage {
 
     if (storedList) {
       this.projectList = JSON.parse(storedList).map(storedProject => {
-        const project = new Project(storedProject.id, storedProject.title, storedProject.todos);
-        project.todos.map(storedTodo => { 
-          const todo = new Todo(storedTodo.title, storedTodo.description, storedTodo.dueDate, storedTodo.priority); 
+        const project = new Project(storedProject.title, storedProject.id, storedProject.todos);
+        project.todos.map(storedTodo => {
+          const todo = new Todo(storedTodo.title, storedTodo.description, storedTodo.dueDate, storedTodo.priority);
           return todo;
         });
         return project;

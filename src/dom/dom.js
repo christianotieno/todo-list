@@ -3,7 +3,7 @@ import { updateView, updateProjectList } from './update-view';
 import { getProjectInput, clearProjectField } from './project-input';
 import { getTodoInput, clearTodoField } from './todo-input';
 import { toggleTodoForm } from './todo-view';
-import ProjectStorage from '../projectStorage';
+import ProjectStorage from '../project-storage';
 import Todo from '../todo';
 
 const addProjectButton = document.getElementById('add-project');
@@ -35,14 +35,13 @@ addTodoButton.onclick = () => {
 
   document.getElementById('todo-list').appendChild(listItem);
   const projectId = addTodoButton.parentElement.parentElement.parentElement.parentElement.id;
-  const project = addTodoButton.parentElement.parentElement.parentElement.parentElement;
+  // const project = addTodoButton.parentElement.parentElement.parentElement.parentElement;
   listOfProjects.projectList.map(project => {
     if (projectId === project.id.toString()) {
       project.addTodo(todoStore, listOfProjects);
+      updateView(project);
     }
   });
-
-  updateProjectList(project.id, listOfProjects);
   clearTodoField();
   listOfProjects.updateLocalStorage();
 };
@@ -54,8 +53,10 @@ toggleProject.addEventListener('click', (element) => {
     const dropdown = document.querySelector('.dropdown-content');
     element.target.appendChild(dropdown);
     dropdown.style.display = 'block';
-
-    updateProjectList(element.target.id, listOfProjects);
+    const project = listOfProjects.projectList.find(project => project.id.toString() === element.target.id);
+    console.log(project);
+    // updateView(project);
+    updateProjectList(project.id, listOfProjects);
     clearTodoField();
     document.getElementById('update-todo').removeAttribute('data-id');
     document.getElementById('update-todo').classList.add('d-none');
@@ -63,7 +64,6 @@ toggleProject.addEventListener('click', (element) => {
 });
 
 todoList.addEventListener('click', (element) => {
-
   listOfProjects.projectList.map(project => {
     project.todos.map(todo => {
       if (todo.id.toString() === element.target.id) {
@@ -78,7 +78,6 @@ todoList.addEventListener('click', (element) => {
 });
 
 updateTodo.onclick = () => {
-
   listOfProjects.projectList.map(project => {
     project.todos.map(todo => {
       if (todo.id.toString() === updateTodo.dataset.id) {
@@ -96,7 +95,7 @@ updateTodo.onclick = () => {
       }
     });
   });
-}
+};
 
 listOfProjects.projectList.map(project => {
   updateView(project);

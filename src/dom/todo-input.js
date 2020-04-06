@@ -6,12 +6,12 @@ const getTodoInput = () => {
   let todoPriorityInput = '';
 
   const radioInputs = document.getElementsByName('priority');
-  
+
   radioInputs.forEach(input => {
     if (input.checked) {
       todoPriorityInput = input.value;
     }
-  })
+  });
 
   return {
     todoTitleInput, todoDescriptionInput, todoDateInput, todoPriorityInput,

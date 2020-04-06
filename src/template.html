@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">  
   <title>Document</title>
 </head>
 <body>
@@ -10,29 +11,48 @@
     <div>
       <h3>Projects</h3>
       <input type="text" class="project-input">
-      <button id="add-project" class="dropbtn">Add Project</button>
+      <button id="add-project" class="btn btn-primary">Add Project</button>
       <div class="dropdown-content">
         <div class="todo-list">
           <button id="toggle-todo-form">Add Your Todos here</button>
-          <form id="todo-form">
-            <br>
-            Title: <input type="text" name="title" id="todo-title"><br><br>
-            Description: <input type="text" name="description" id="todo-description"><br><br>
-            Date Due: <input type="date" name="duedate" id="todo-date"><br><br>
-            <p id="todo-priority">
-              Priority<br>
-              <input type="radio" id="very-important" name="priority" value="very-important">
-              <label for="very-important">Very important</label><br>
-              
-              <input type="radio" id="important" name="priority" value="important">
-              <label for="important">Important</label><br>
-              
-              <input type="radio" id="not-important" name="priority" value="not-important" checked>
-              <label for="not-important">Not important</label><br>
-            </p>
-            <input type="button" id="add-todo" value="Add to Todo list">
-            <input class="d-none" type="button" id="update-todo" value="Update Todo list">
-          </form>
+          <form id="todo-form">          
+            <div class="form-group">
+              <label for="title">title</label>
+              <input type="text" class="form-control" id="todo-title" aria-describedby="todotitle" placeholder="title">
+            </div>
+
+            <div class="form-group"> 
+              <label for="description">description</label>
+              <input type="text" class="form-control" id="todo-description" aria-describedby="tododescription" placeholder="description">
+            </div>
+
+            <div class="form-group"> 
+              <label for="duedate">Date due</label>
+              <input type="date" class="form-control" id="todo-date" aria-describedby="tododate">
+            </div>
+
+            <div class="form-check" id="todo-priority">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" id= "very-important" name="priority">Very important
+              </label>
+            </div>
+            
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" id="important" name="priority">Important
+              </label>
+            </div>
+            
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" id= "not-important" name="priority" disabled>Not important
+              </label>
+            </div>
+            <div class="form-check">
+              <input type="button" id="add-todo" value="Add to Todo list">
+              <input class="d-none" type="button" id="update-todo" value="Update Todo list">
+            </div>
+        </form>
           <ul id="todo-list">
             
           </ul>

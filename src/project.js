@@ -1,7 +1,7 @@
-import ProjectStorage from './projectStorage';
+import ProjectStorage from './project-storage';
 
 class Project {
-  constructor(id = Math.floor(Math.random() * 10000), title, todos = []) {
+  constructor(title, id = Math.floor(Math.random() * 10000), todos = []) {
     this.id = id;
     this.title = title;
     this.todos = todos;

@@ -14,3 +14,7 @@
 .d-none {
   display: none; }
 
+button {
+  color: red;
+  margin: 10px; }
+

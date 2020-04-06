@@ -38,17 +38,14 @@ addTodoButton.onclick = () => {
   const project = addTodoButton.parentElement.parentElement.parentElement.parentElement;
   listOfProjects.projectList.map(project => {
     if (projectId === project.id.toString()) {
-      project.addTodo(todoStore);
+      project.addTodo(todoStore, listOfProjects);
     }
   });
 
   updateProjectList(project.id, listOfProjects);
   clearTodoField();
+  listOfProjects.updateLocalStorage();
 };
-
-const defaultProject = addProject('Get Started');
-updateView(defaultProject);
-listOfProjects.addToProjects(defaultProject)
 
 const toggleProject = document.querySelector('.project-list');
 
@@ -100,3 +97,7 @@ updateTodo.onclick = () => {
     });
   });
 }
+
+listOfProjects.projectList.map(project => {
+  updateView(project);
+});

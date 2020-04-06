@@ -5,6 +5,13 @@ const updateView = (project) => {
   li.classList.add('toggle-project');
   const container = document.querySelector('.project-list');
 
+  project.todos.map(todo => {
+    const li = document.createElement('li');
+    li.innerHTML = todo.title;
+    li.id = todo.id;
+    document.getElementById('todo-list').appendChild(li);
+  });
+
   container.appendChild(li);
 };
 

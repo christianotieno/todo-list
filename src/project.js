@@ -1,12 +1,15 @@
+import ProjectStorage from './projectStorage';
+
 class Project {
-  constructor(title) {
-    this.id = Math.floor(Math.random() * 10000);
+  constructor(id = Math.floor(Math.random() * 10000), title, todos = []) {
+    this.id = id;
     this.title = title;
-    this.todos = [];
+    this.todos = todos;
   }
 
-  addTodo(todo) {
+  addTodo(todo, listOfProjects) {
     this.todos.push(todo);
+    listOfProjects.updateLocalStorage();
   }
 }
 

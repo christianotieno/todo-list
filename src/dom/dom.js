@@ -23,6 +23,7 @@ addProjectButton.onclick = () => {
   const project = addProject(projectInput);
   listOfProjects.addToProjects(project);
   updateView(project);
+  listOfProjects.updateLocalStorage();
   clearProjectField();
 };
 
@@ -34,12 +35,11 @@ addTodoButton.onclick = () => {
   listItem.innerHTML = todoStore.title;
 
   document.getElementById('todo-list').appendChild(listItem);
-  const projectId = addTodoButton.parentElement.parentElement.parentElement.parentElement.id;
-  // const project = addTodoButton.parentElement.parentElement.parentElement.parentElement;
+  const projectId = addTodoButton.parentElement.parentElement.parentElement.parentElement.parentElement.id;
   listOfProjects.projectList.map(project => {
     if (projectId === project.id.toString()) {
       project.addTodo(todoStore, listOfProjects);
-      updateView(project);
+      updateProjectList(project.id, listOfProjects);
     }
   });
   clearTodoField();
@@ -54,7 +54,6 @@ toggleProject.addEventListener('click', (element) => {
     element.target.appendChild(dropdown);
     dropdown.style.display = 'block';
     const project = listOfProjects.projectList.find(project => project.id.toString() === element.target.id);
-    console.log(project);
     // updateView(project);
     updateProjectList(project.id, listOfProjects);
     clearTodoField();
@@ -97,6 +96,20 @@ updateTodo.onclick = () => {
   });
 };
 
+
 listOfProjects.projectList.map(project => {
   updateView(project);
 });
+
+const deleteProject = document.querySelectorAll('.delete-project');
+const deleteTodo = document.querySelector('.delete-todo'); 
+
+deleteProject.forEach(deleteProjectBtn => {
+  deleteProjectBtn.onclick = (e) => {
+    if (e.target.nodeName === 'BUTTON') {
+      const project = listOfProjects.projectList.find(project => e.target.parentElement.id === project.id.toString());
+      listOfProjects.removeProject(project);
+      listOfProjects.updateLocalStorage();
+    }
+  };
+})

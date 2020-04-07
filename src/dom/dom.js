@@ -2,7 +2,7 @@ import addProject from '../controller';
 import { updateView, updateProjectList, removeProject } from './update-view';
 import { getProjectInput, clearProjectField } from './project-input';
 import { getTodoInput, clearTodoField } from './todo-input';
-import toggleTodoForm from './todo-view';
+import { toggleTodoForm, todoListner } from './todo-view';
 import ProjectStorage from '../project-storage';
 import Todo from '../todo';
 
@@ -46,6 +46,7 @@ addTodoButton.onclick = () => {
   });
   clearTodoField();
   listOfProjects.updateLocalStorage();
+  todoListner(listOfProjects);
 };
 
 const toggleProject = document.querySelector('.project-list');
@@ -61,6 +62,7 @@ toggleProject.addEventListener('click', (element) => {
     clearTodoField();
     document.getElementById('update-todo').removeAttribute('data-id');
     document.getElementById('update-todo').classList.add('d-none');
+    todoListner(listOfProjects);
   }
 });
 
@@ -68,6 +70,7 @@ todoList.addEventListener('click', (element) => {
   listOfProjects.projectList.map(project => {
     project.todos.map(todo => {
       if (todo.id.toString() === element.target.id) {
+        toggleTodoForm();
         document.querySelector('#todo-title').value = todo.title;
         document.querySelector('#todo-description').value = todo.description;
         document.querySelector('#todo-date').value = todo.dueDate;
@@ -106,7 +109,6 @@ updateTodo.onclick = () => {
 listOfProjects.projectList.map(project => updateView(project));
 
 const deleteProject = document.querySelectorAll('.delete-project');
-// const deleteTodo = document.querySelector('.delete-todo');
 
 deleteProject.forEach(deleteProjectBtn => {
   deleteProjectBtn.onclick = (e) => {

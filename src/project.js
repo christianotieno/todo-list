@@ -9,6 +9,11 @@ class Project {
     this.todos.push(todo);
     listOfProjects.updateLocalStorage();
   }
+
+  deleteTodo(todo) {
+    const id = this.todos.findIndex(todoId => todo === todoId);
+    this.todos.splice(id, 1);
+  }
 }
 
 export default Project;

@@ -24,7 +24,7 @@ const updateProjectList = (id, listOfProjects) => {
         li.innerHTML = todo.title;
         li.id = todo.id;
         deleteTodo.innerHTML = 'Remove Todo';
-        deleteTodo.classList.add = 'delete-todo';
+        deleteTodo.classList.add('delete-todo');
         li.appendChild(deleteTodo);
         document.getElementById('todo-list').appendChild(li);
         return false;
@@ -39,4 +39,11 @@ const removeProject = (project) => {
   container.removeChild(project);
 };
 
-export { updateView, updateProjectList, removeProject };
+const removeTodo = (todo) => {
+  const containerContent = document.querySelector('#todo-list');
+  containerContent.removeChild(todo);
+};
+
+export {
+  updateView, updateProjectList, removeProject, removeTodo,
+};

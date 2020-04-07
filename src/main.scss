@@ -1,11 +1,21 @@
-.container-fluid {
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+.container {
+  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(2, 0, 36, 0.6)), url('./assets/img/work_table.jpg');
+    background-size: cover;
   background-color: rgb(58, 57, 57);
   color: white;
+  margin-top: 2%;
 }
 
-h3.h3 {
+#body-header {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 10vh;
+  h3.h3 {
   margin: 20px 0 20px;
   text-align: center;
+}
 }
 
 li {
@@ -105,11 +115,11 @@ li {
 }
 
 .toggle-project {
-  background-color: rgb(87, 76, 76);
+  background-color: rgba(0, 0, 0, 0.5);
   min-height: 80px;
   padding: 15px 10px 25px;
   .dropdown-content {
-    background-color: rgb(129, 123, 123);
+    background-color: rgba(0, 0, 0, 0.5);
     margin-top: 50px;
   }
   .delete-project {
@@ -118,7 +128,7 @@ li {
 }
 
 .toggle-project:hover {
-  background-color: rgb(56, 49, 49);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .dropdown-content {

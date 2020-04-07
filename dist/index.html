@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">  
   <title>todoapp</title>
-<link href="main.230cd2a74e4b3e25d7c9.css" rel="stylesheet"></head>
-<body class="container-fluid">
+<link href="main.88c635ee01d3e01fdc1c.css" rel="stylesheet"></head>
+<body class="container">
   <div class="project-container">
     <div id='main-body'>
-      <h3 class="h3">Welcome to the todo app!</h3>      
+      <div id="body-header">
+        <h3 class="h3">Welcome to the todo app!</h3>
+      </div>      
       <div id=project-input-div>
         <input type="text" class="project-input" id="project-text">
         <button id="add-project" class="btn btn-primary">Add Project</button>
@@ -20,17 +21,17 @@
           <form id="todo-form">          
             <div class="form-group">
               <label for="title">Title</label>
-              <input type="text" class="form-control" id="todo-title" aria-describedby="todotitle" placeholder="title">
+              <input type="text" class="form-control" id="todo-title" aria-describedby="todotitle" placeholder="title" required>
             </div>
 
             <div class="form-group"> 
               <label for="description">Description</label>
-              <input type="text" class="form-control" id="todo-description" aria-describedby="tododescription" placeholder="description">
+              <input type="text" class="form-control" id="todo-description" aria-describedby="tododescription" placeholder="description" required>
             </div>
 
             <div class="form-group"> 
               <label for="duedate">Date due</label>
-              <input type="date" class="form-control" id="todo-date" aria-describedby="tododate">
+              <input type="date" class="form-control" id="todo-date" aria-describedby="tododate" required>
             </div>
 
             <div class="form-check" id="todo-priority">
@@ -65,5 +66,5 @@
       </ul>
     </div>
   </div>
-<script src="main.54bd4e58e82285599b75.js"></script></body>
+<script src="main.3a20b419a988000b00af.js"></script></body>
 </html>

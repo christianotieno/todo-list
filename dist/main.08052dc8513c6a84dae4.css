@@ -4,8 +4,8 @@ li {
   margin-bottom: 2px;
   margin-top: 5px;
   margin-left: 0;
-  padding: 0;
-}
+  padding: 0; }
+
 #main-body {
   display: flex;
   justify-content: start;
@@ -13,63 +13,47 @@ li {
   height: 100vh;
   width: 80vw;
   padding: 0;
-  border-top: 5%;
-  #project-input-div {
-    #project-text {
-      border-radius: 8px;
-      margin: 0;
-      height: 80px;
-      width: 500px;
-      margin-left: 50px;
-    }
-    #add-project {
-      height: 70px;
-    }
-  }
-  button {
+  border-top: 5%; }
+  #main-body #project-input-div #project-text {
+    border-radius: 8px;
+    margin: 0;
+    height: 80px;
+    width: 500px;
+    margin-left: 50px; }
+  #main-body #project-input-div #add-project {
+    height: 70px; }
+  #main-body button {
     border-radius: 5px;
     height: 50px;
-    width: 150px;
-  }
-}
+    width: 150px; }
+
 #todo-list {
-  padding: 0;
-  li {
+  padding: 0; }
+  #todo-list li {
     display: flex;
     justify-content: space-between;
-    padding: 0;
-  }
-}
+    padding: 0; }
+
 .project-container {
   display: flex;
-  justify-content: space-around;
-}
+  justify-content: space-around; }
 
 #todo-form {
-  display: none;
+  display: none; }
 
-}
-#toggle-todo-form {
-
-}
 .dropdown-content {
-  display: none;
-  
-}
+  display: none; }
 
 .project-list {
   font-weight: 700;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  li:hover {
-    cursor: pointer;
-  }
-  padding: 0;
-}
+  padding: 0; }
+  .project-list li:hover {
+    cursor: pointer; }
 
 .d-none {
-  display: none;
-}
+  display: none; }
 
-button{
-  margin: 10px;
-}
+button {
+  margin: 10px; }
+

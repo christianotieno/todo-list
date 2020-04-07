@@ -4,14 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">  
-  <title>Document</title>
+  <title>todoapp</title>
 </head>
-<body>
+<body class="container-fluid">
   <div class="project-container">
-    <div>
-      <h3>Projects</h3>
-      <input type="text" class="project-input">
-      <button id="add-project" class="btn btn-primary">Add Project</button>
+    <div id='main-body'>
+      <h3 class="h3">Welcome to the todo app!</h3>      
+      <div id=project-input-div>
+        <input type="text" class="project-input" id="project-text">
+        <button id="add-project" class="btn btn-primary">Add Project</button>
+      </div>
       <div class="dropdown-content">
         <div class="todo-list">
           <button id="toggle-todo-form">Add Your Todos here</button>

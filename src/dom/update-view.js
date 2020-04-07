@@ -22,6 +22,7 @@ const updateProjectList = (id, listOfProjects) => {
         const li = document.createElement('li');
         const deleteTodo = document.createElement('button');
         li.innerHTML = todo.title;
+        li.classList.add('bg-success');
         li.id = todo.id;
         deleteTodo.innerHTML = 'Remove Todo';
         deleteTodo.classList.add('delete-todo');

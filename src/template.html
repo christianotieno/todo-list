@@ -14,10 +14,16 @@
       <div id=project-input-div>
         <input type="text" class="project-input" id="project-text">
         <button id="add-project" class="btn btn-primary">Add Project</button>
+        <div id="project-empty-check" class="d-none">
+          <p>Please fill out the field!</p>
+        </div>
       </div>
       <div class="dropdown-content">
         <div class="todo-list">
           <button id="toggle-todo-form">Add Your Todos here</button>
+          <div id="todo-empty-check" class="d-none">
+            <p>Please fill out all the fields!</p>
+          </div>
           <form id="todo-form">          
             <div class="form-group">
               <label for="title">Title</label>

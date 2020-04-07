@@ -12,10 +12,17 @@ const getTodoInput = () => {
       todoPriorityInput = input.value;
     }
   });
-
-  return {
-    todoTitleInput, todoDescriptionInput, todoDateInput, todoPriorityInput,
-  };
+  let value = false;
+  const emptyCheckDiv = document.querySelector('#todo-empty-check');
+  if (todoTitleInput === '' || todoDescriptionInput === '' || todoDateInput === '') {
+    emptyCheckDiv.classList.remove('d-none');
+    setTimeout(() => { emptyCheckDiv.classList.add('d-none'); }, 3000);
+  } else {
+    value = {
+      todoTitleInput, todoDescriptionInput, todoDateInput, todoPriorityInput,
+    };
+  }
+  return value;
 };
 
 const clearTodoField = () => {

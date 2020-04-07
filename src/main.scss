@@ -135,10 +135,16 @@ li {
   display: none;
   
 }
+#todo-empty-check p, 
+#project-empty-check p {
+  color: yellow;
+  text-align: center;
+  font-size: x-large;
+}
+
 
 .project-list {
   font-weight: 700;
-  // font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   li:hover {
     cursor: pointer;
   }

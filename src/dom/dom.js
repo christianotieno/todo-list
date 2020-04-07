@@ -30,24 +30,26 @@ addProjectButton.onclick = () => {
 
 addTodoButton.onclick = () => {
   const todoInput = getTodoInput();
-  const todoStore = new Todo(todoInput.todoTitleInput,
-    todoInput.todoDescriptionInput, todoInput.todoDateInput, todoInput.todoPriorityInput);
-  const listItem = document.createElement('li');
-  listItem.innerHTML = todoStore.title;
+  if (todoInput) {
+    const todoStore = new Todo(todoInput.todoTitleInput,
+      todoInput.todoDescriptionInput, todoInput.todoDateInput, todoInput.todoPriorityInput);
+    const listItem = document.createElement('li');
+    listItem.innerHTML = todoStore.title;
 
-  document.getElementById('todo-list').appendChild(listItem);
-  const projectId = addTodoButton.parentElement
-    .parentElement.parentElement.parentElement.parentElement.id;
-  listOfProjects.projectList.map(project => {
-    if (projectId === project.id.toString()) {
-      project.addTodo(todoStore, listOfProjects);
-      updateProjectList(project.id, listOfProjects);
-    }
-    return false;
-  });
-  clearTodoField();
-  listOfProjects.updateLocalStorage();
-  todoListner(listOfProjects);
+    document.getElementById('todo-list').appendChild(listItem);
+    const projectId = addTodoButton.parentElement
+      .parentElement.parentElement.parentElement.parentElement.id;
+    listOfProjects.projectList.map(project => {
+      if (projectId === project.id.toString()) {
+        project.addTodo(todoStore, listOfProjects);
+        updateProjectList(project.id, listOfProjects);
+      }
+      return false;
+    });
+    clearTodoField();
+    listOfProjects.updateLocalStorage();
+    todoListner(listOfProjects);
+  }
 };
 
 const toggleProject = document.querySelector('.project-list');

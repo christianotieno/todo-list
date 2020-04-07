@@ -1,4 +1,5 @@
 import { removeTodo, removeProject } from './update-view';
+import { clearTodoField } from './todo-input';
 
 const toggleTodoForm = () => {
   const form = document.getElementById('todo-form');
@@ -8,6 +9,7 @@ const toggleTodoForm = () => {
     form.style.display = 'none';
     toggleForm.innerHTML = 'Add Your Todos here';
   } else {
+    clearTodoField();
     form.style.display = 'block';
     toggleForm.innerHTML = 'Close form';
   }
@@ -47,4 +49,43 @@ const projectListner = (listOfProjects) => {
   });
 };
 
-export { toggleTodoForm, todoListner, projectListner };
+const editTodoListner = (listOfProjects) => {
+  const editTodos = document.querySelectorAll('.edit-todo');
+
+  editTodos.forEach(editTodo => {
+    editTodo.addEventListener('click', (element) => {
+      listOfProjects.projectList.map(project => {
+        project.todos.map(todo => {
+          if (todo.id.toString() === element.target.parentElement.id) {
+            toggleTodoForm();
+            document.querySelector('#todo-title').value = todo.title;
+            document.querySelector('#todo-description').value = todo.description;
+            document.querySelector('#todo-date').value = todo.dueDate;
+            document.getElementById('update-todo').classList.remove('d-none');
+            document.getElementById('update-todo').setAttribute('data-id', todo.id.toString());
+          }
+          return false;
+        });
+        return false;
+      });
+    });
+  });
+};
+
+const checkedListner = () => {
+  const checkTodos = document.querySelectorAll('.title');
+
+  checkTodos.forEach(checkTodo => {
+    checkTodo.addEventListener('click', (element) => {
+      if (element.target.style.textDecoration === 'line-through') {
+        element.target.style.textDecoration = 'none';
+      } else {
+        element.target.style.textDecoration = 'line-through';
+      }
+    });
+  });
+};
+
+export {
+  toggleTodoForm, todoListner, projectListner, editTodoListner, checkedListner,
+};

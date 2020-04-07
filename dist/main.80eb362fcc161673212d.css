@@ -7184,7 +7184,8 @@ li {
   #main-body button {
     border-radius: 5px;
     height: 50px;
-    width: 150px; }
+    width: 100px;
+    border-style: none; }
 
 #todo-list {
   padding: 0; }

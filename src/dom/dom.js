@@ -2,14 +2,15 @@ import addProject from '../controller';
 import { updateView, updateProjectList } from './update-view';
 import { getProjectInput, clearProjectField } from './project-input';
 import { getTodoInput, clearTodoField } from './todo-input';
-import { toggleTodoForm, todoListner, projectListner } from './todo-view';
+import {
+  toggleTodoForm, todoListner, projectListner, editTodoListner, checkedListner,
+} from './todo-view';
 import ProjectStorage from '../project-storage';
 import Todo from '../todo';
 
 const addProjectButton = document.getElementById('add-project');
 const addTodoButton = document.getElementById('add-todo');
 const toggleForm = document.getElementById('toggle-todo-form');
-const todoList = document.getElementById('todo-list');
 const updateTodo = document.getElementById('update-todo');
 
 const listOfProjects = new ProjectStorage();
@@ -20,12 +21,14 @@ toggleForm.onclick = () => {
 
 addProjectButton.onclick = () => {
   const projectInput = getProjectInput();
-  const project = addProject(projectInput);
-  listOfProjects.addToProjects(project);
-  updateView(project);
-  listOfProjects.updateLocalStorage();
-  clearProjectField();
-  projectListner(listOfProjects);
+  if (projectInput) {
+    const project = addProject(projectInput);
+    listOfProjects.addToProjects(project);
+    updateView(project);
+    listOfProjects.updateLocalStorage();
+    clearProjectField();
+    projectListner(listOfProjects);
+  }
 };
 
 addTodoButton.onclick = () => {
@@ -49,6 +52,8 @@ addTodoButton.onclick = () => {
     clearTodoField();
     listOfProjects.updateLocalStorage();
     todoListner(listOfProjects);
+    editTodoListner(listOfProjects);
+    checkedListner();
   }
 };
 
@@ -66,25 +71,11 @@ toggleProject.addEventListener('click', (element) => {
     document.getElementById('update-todo').removeAttribute('data-id');
     document.getElementById('update-todo').classList.add('d-none');
     todoListner(listOfProjects);
+    editTodoListner(listOfProjects);
+    checkedListner();
   }
 });
 
-todoList.addEventListener('click', (element) => {
-  listOfProjects.projectList.map(project => {
-    project.todos.map(todo => {
-      if (todo.id.toString() === element.target.id) {
-        toggleTodoForm();
-        document.querySelector('#todo-title').value = todo.title;
-        document.querySelector('#todo-description').value = todo.description;
-        document.querySelector('#todo-date').value = todo.dueDate;
-        document.getElementById('update-todo').classList.remove('d-none');
-        document.getElementById('update-todo').setAttribute('data-id', todo.id.toString());
-      }
-      return false;
-    });
-    return false;
-  });
-});
 
 updateTodo.onclick = () => {
   listOfProjects.projectList.map(project => {

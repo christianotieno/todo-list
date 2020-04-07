@@ -20,6 +20,7 @@ const updateProjectList = (id, listOfProjects) => {
     if (id === project.id) {
       project.todos.map(todo => {
         const li = document.createElement('li');
+        const editTodo = document.createElement('button');
         const deleteTodo = document.createElement('button');
         const textWrap = document.createElement('div');
         const title = document.createElement('div');
@@ -42,8 +43,12 @@ const updateProjectList = (id, listOfProjects) => {
         date.innerHTML = todo.dueDate;
         li.appendChild(date);
         li.id = todo.id;
+
+        editTodo.innerHTML = 'Edit';
+        editTodo.classList.add('edit-todo');
         deleteTodo.innerHTML = 'Remove Todo';
         deleteTodo.classList.add('delete-todo');
+        li.appendChild(editTodo);
         li.appendChild(deleteTodo);
         document.getElementById('todo-list').appendChild(li);
         return false;

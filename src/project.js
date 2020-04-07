@@ -1,5 +1,3 @@
-import ProjectStorage from './project-storage';
-
 class Project {
   constructor(title, id = Math.floor(Math.random() * 10000), todos = []) {
     this.id = id;

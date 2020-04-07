@@ -9,7 +9,8 @@ class ProjectStorage {
       this.projectList = JSON.parse(storedList).map(storedProject => {
         const project = new Project(storedProject.title, storedProject.id, storedProject.todos);
         project.todos.map(storedTodo => {
-          const todo = new Todo(storedTodo.title, storedTodo.description, storedTodo.dueDate, storedTodo.priority);
+          const todo = new Todo(storedTodo.title,
+            storedTodo.description, storedTodo.dueDate, storedTodo.priority);
           return todo;
         });
         return project;
@@ -21,6 +22,11 @@ class ProjectStorage {
 
   addToProjects(project) {
     this.projectList.push(project);
+  }
+
+  removeProject(project) {
+    const id = this.projectList.findIndex(projectId => project === projectId);
+    this.projectList.splice(id, 1);
   }
 
   updateLocalStorage() {

@@ -11,4 +11,4 @@ const toggleTodoForm = () => {
   }
 };
 
-export { toggleTodoForm };
+export default toggleTodoForm;

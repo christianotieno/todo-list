@@ -6,7 +6,7 @@ const updateView = (project) => {
   li.id = project.id;
   deleteProject.innerHTML = 'Remove Project';
   deleteProject.classList.add('delete-project', 'btn-danger');
-  li.appendChild(deleteProject)
+  li.appendChild(deleteProject);
   li.classList.add('toggle-project');
 
   const container = document.querySelector('.project-list');
@@ -27,9 +27,16 @@ const updateProjectList = (id, listOfProjects) => {
         deleteTodo.classList.add = 'delete-todo';
         li.appendChild(deleteTodo);
         document.getElementById('todo-list').appendChild(li);
+        return false;
       });
     }
+    return false;
   });
 };
 
-export { updateView, updateProjectList };
+const removeProject = (project) => {
+  const container = document.querySelector('.project-list');
+  container.removeChild(project);
+};
+
+export { updateView, updateProjectList, removeProject };

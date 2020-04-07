@@ -1,3 +1,13 @@
+.container-fluid {
+  background-color: rgb(58, 57, 57);
+  color: white;
+}
+
+h3.h3 {
+  margin: 20px 0 20px;
+  text-align: center;
+}
+
 li {
   list-style: none;
   line-height: normal;
@@ -6,6 +16,7 @@ li {
   margin-left: 0;
   padding: 0;
 }
+
 #main-body {
   display: flex;
   justify-content: start;
@@ -18,12 +29,17 @@ li {
     #project-text {
       border-radius: 8px;
       margin: 0;
-      height: 80px;
-      width: 500px;
-      margin-left: 50px;
+      height: 40px;
+      width: 100%;
+      text-align: center;
+    }
+    #project-text:focus {
+      outline: none;
     }
     #add-project {
-      height: 70px;
+      height: 40px;
+      width: 100%;
+      margin: 5px 0;
     }
   }
   button {
@@ -32,14 +48,31 @@ li {
     width: 150px;
   }
 }
+
 #todo-list {
   padding: 0;
   li {
     display: flex;
     justify-content: space-between;
-    padding: 0;
+    padding: 0 10px 0 15px;
+    align-items: center;
+    min-height: 70px;
+    .text-wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+    .title {
+      font-size: 18px;
+    }
+    .description {
+      font-size: 15px;
+      color: rgb(59, 59, 59);
+      margin-bottom: 0;
+    }
   }
 }
+
 .project-container {
   display: flex;
   justify-content: space-around;
@@ -47,11 +80,47 @@ li {
 
 #todo-form {
   display: none;
-
+  width: calc(100% - 20px);
+  margin: 0 auto;
+  padding: 10px 0 15px;
 }
-#toggle-todo-form {
 
+.form-check {
+  #add-todo,
+  #update-todo {
+    background-color: rgb(221, 221, 221);
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border-style: none;
+  }
+  #add-todo:hover,
+  #update-todo:hover {
+    background-color: rgb(182, 182, 182);
+  }
+  #add-todo:focus,
+  #update-todo:focus {
+    outline: none;
+  }
 }
+
+.toggle-project {
+  background-color: rgb(87, 76, 76);
+  min-height: 80px;
+  padding: 15px 10px 25px;
+  .dropdown-content {
+    background-color: rgb(129, 123, 123);
+    margin-top: 50px;
+  }
+  .delete-project {
+    float: right;
+  }
+}
+
+.toggle-project:hover {
+  background-color: rgb(56, 49, 49);
+}
+
 .dropdown-content {
   display: none;
   
@@ -59,17 +128,20 @@ li {
 
 .project-list {
   font-weight: 700;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  // font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   li:hover {
     cursor: pointer;
   }
   padding: 0;
+  margin: 15px 0 0 0;
 }
 
 .d-none {
   display: none;
 }
 
-button{
+
+button#toggle-todo-form {
   margin: 10px;
+  width: calc(100% - 20px);
 }

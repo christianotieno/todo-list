@@ -21,8 +21,26 @@ const updateProjectList = (id, listOfProjects) => {
       project.todos.map(todo => {
         const li = document.createElement('li');
         const deleteTodo = document.createElement('button');
-        li.innerHTML = todo.title;
-        li.classList.add('bg-success');
+        const textWrap = document.createElement('div');
+        const title = document.createElement('div');
+        const p = document.createElement('p');
+        const date = document.createElement('p');
+
+        title.innerHTML = todo.title;
+        title.classList.add('title');
+        textWrap.classList.add('text-wrap');
+        textWrap.appendChild(title);
+        p.classList.add('description');
+        p.innerHTML = todo.description;
+        textWrap.appendChild(p);
+        li.appendChild(textWrap);
+        if (todo.priority === 'important') { li.classList.add('bg-warning'); }
+        if (todo.priority === 'very-important') { li.classList.add('bg-success'); }
+        if (todo.priority === 'not-important') { li.classList.add('bg-secondary'); }
+
+        date.classList.add('date');
+        date.innerHTML = todo.dueDate;
+        li.appendChild(date);
         li.id = todo.id;
         deleteTodo.innerHTML = 'Remove Todo';
         deleteTodo.classList.add('delete-todo');

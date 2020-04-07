@@ -1,8 +1,8 @@
 import addProject from '../controller';
-import { updateView, updateProjectList, removeProject } from './update-view';
+import { updateView, updateProjectList } from './update-view';
 import { getProjectInput, clearProjectField } from './project-input';
 import { getTodoInput, clearTodoField } from './todo-input';
-import { toggleTodoForm, todoListner } from './todo-view';
+import { toggleTodoForm, todoListner, projectListner } from './todo-view';
 import ProjectStorage from '../project-storage';
 import Todo from '../todo';
 
@@ -25,6 +25,7 @@ addProjectButton.onclick = () => {
   updateView(project);
   listOfProjects.updateLocalStorage();
   clearProjectField();
+  projectListner(listOfProjects);
 };
 
 addTodoButton.onclick = () => {
@@ -93,9 +94,12 @@ updateTodo.onclick = () => {
         todo.dueDate = todoUpdated.todoDateInput;
         todo.priority = todoUpdated.todoPriorityInput;
 
-        const projectId = addTodoButton.parentElement.parentElement.parentElement.parentElement.id;
-        updateProjectList(projectId, listOfProjects);
+        const projectId = addTodoButton.parentElement.parentElement
+          .parentElement.parentElement.parentElement.id;
+        updateProjectList(Number(projectId), listOfProjects);
         clearTodoField();
+        toggleTodoForm();
+        listOfProjects.updateLocalStorage();
         document.getElementById('update-todo').removeAttribute('data-id');
         document.getElementById('update-todo').classList.add('d-none');
       }
@@ -106,18 +110,8 @@ updateTodo.onclick = () => {
 };
 
 
-listOfProjects.projectList.map(project => updateView(project));
-
-const deleteProject = document.querySelectorAll('.delete-project');
-
-deleteProject.forEach(deleteProjectBtn => {
-  deleteProjectBtn.onclick = (e) => {
-    if (e.target.nodeName === 'BUTTON') {
-      const project = listOfProjects.projectList
-        .find(project => e.target.parentElement.id === project.id.toString());
-      listOfProjects.removeProject(project);
-      listOfProjects.updateLocalStorage();
-      removeProject(e.target.parentElement);
-    }
-  };
+listOfProjects.projectList.map(project => {
+  updateView(project);
+  projectListner(listOfProjects);
+  return false;
 });

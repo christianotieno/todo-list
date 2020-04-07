@@ -1,4 +1,4 @@
-import { removeTodo } from './update-view';
+import { removeTodo, removeProject } from './update-view';
 
 const toggleTodoForm = () => {
   const form = document.getElementById('todo-form');
@@ -31,4 +31,20 @@ const todoListner = (listOfProjects) => {
   });
 };
 
-export { toggleTodoForm, todoListner };
+const projectListner = (listOfProjects) => {
+  const deleteProject = document.querySelectorAll('.delete-project');
+
+  deleteProject.forEach(deleteProjectBtn => {
+    deleteProjectBtn.onclick = (e) => {
+      if (e.target.nodeName === 'BUTTON') {
+        const project = listOfProjects.projectList
+          .find(project => e.target.parentElement.id === project.id.toString());
+        listOfProjects.removeProject(project);
+        listOfProjects.updateLocalStorage();
+        removeProject(e.target.parentElement);
+      }
+    };
+  });
+};
+
+export { toggleTodoForm, todoListner, projectListner };

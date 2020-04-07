@@ -1,0 +1,116 @@
+.container-fluid {
+  background-color: #3a3939;
+  color: white; }
+
+h3.h3 {
+  margin: 20px 0 20px;
+  text-align: center; }
+
+li {
+  list-style: none;
+  line-height: normal;
+  margin-bottom: 2px;
+  margin-top: 5px;
+  margin-left: 0;
+  padding: 0; }
+
+#main-body {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  height: 100vh;
+  width: 80vw;
+  padding: 0;
+  border-top: 5%; }
+  #main-body #project-input-div #project-text {
+    border-radius: 8px;
+    margin: 0;
+    height: 40px;
+    width: 100%;
+    text-align: center; }
+  #main-body #project-input-div #project-text:focus {
+    outline: none; }
+  #main-body #project-input-div #add-project {
+    height: 40px;
+    width: 100%;
+    margin: 5px 0; }
+  #main-body button {
+    border-radius: 5px;
+    height: 50px;
+    width: 150px; }
+
+#todo-list {
+  padding: 0; }
+  #todo-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 0 15px;
+    align-items: center;
+    min-height: 70px; }
+    #todo-list li .text-wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around; }
+    #todo-list li .title {
+      font-size: 18px; }
+    #todo-list li .description {
+      font-size: 15px;
+      color: #3b3b3b;
+      margin-bottom: 0; }
+
+.project-container {
+  display: flex;
+  justify-content: space-around; }
+
+#todo-form {
+  display: none;
+  width: calc(100% - 20px);
+  margin: 0 auto;
+  padding: 10px 0 15px; }
+
+.form-check #add-todo,
+.form-check #update-todo {
+  background-color: #dddddd;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border-style: none; }
+
+.form-check #add-todo:hover,
+.form-check #update-todo:hover {
+  background-color: #b6b6b6; }
+
+.form-check #add-todo:focus,
+.form-check #update-todo:focus {
+  outline: none; }
+
+.toggle-project {
+  background-color: #574c4c;
+  min-height: 80px;
+  padding: 15px 10px 25px; }
+  .toggle-project .dropdown-content {
+    background-color: #817b7b;
+    margin-top: 50px; }
+  .toggle-project .delete-project {
+    float: right; }
+
+.toggle-project:hover {
+  background-color: #383131; }
+
+.dropdown-content {
+  display: none; }
+
+.project-list {
+  font-weight: 700;
+  padding: 0;
+  margin: 15px 0 0 0; }
+  .project-list li:hover {
+    cursor: pointer; }
+
+.d-none {
+  display: none; }
+
+button#toggle-todo-form {
+  margin: 10px;
+  width: calc(100% - 20px); }
+

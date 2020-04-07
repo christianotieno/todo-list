@@ -1,41 +1,50 @@
 # todo-list
 
-> One paragraph statement about the project.
+> Implementation of todo list with javascript dom manipulation and es6 classes.
 
-![screenshot](./app_screenshot.png)
+![screenshot](./src/assets/img/screenshot.png)
 
 Additional description about the project and its features.
 
 ## Built With
 
-- Major languages,
-- frameworks,
-- technologies used
+- Bootstrap,
+- HTML/SASS,
+- JavaScript,
+- Webpack.
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://raw.githack.com/christianotieno/todo-list/feature/todo-list/dist/index.html
+)
 
+### Setup and installation
 
-## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-### Setup
-
-### Install
+```
+git clone git@github.com:christianotieno/todo-list.git
+```
 
 ### Usage
 
+```
+npm install webpack webpack-cli --save-dev
+```
+
+> This acrion will install webpack to the node_modules directory of this project.
+
 ### Run tests
 
-### Deployment
+```
+npx eslint .
+```
+
+### Run the site
+
+```
+npx webpack --watch
+```
+
+> This action will prepare your site and bundle everything together for you
 
 
 
@@ -43,21 +52,21 @@ To get a local copy up and running follow these simple example steps.
 
 👤 **Author1**
 
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
+- Github: [@christianotieno](https://github.com/christianotieno)
+- Twitter: [@iamchrisotieno](https://twitter.com/iamchrisotieno)
+- Linkedin: [Christian Otieno](https://linkedin.com/linkedinhandle)
 
 👤 **Author2**
 
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
+- Github: [@ermin-cahtarevic](https://github.com/ermin-cahtarevic)
+- Twitter: [@ErminCahtarevic](https://twitter.com/ErminCahtarevic)
+- Linkedin: [Ermin Cahtarevic](https://www.linkedin.com/in/ermincahtarevic/)
 
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](https://github.com/christianotieno/todo-list/issues).
 
 ## Show your support
 
@@ -66,9 +75,8 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Inspiration.
 
 ## 📝 License
 
-This project is [MIT](lic.url) licensed.
+This project is [MIT](https://opensource.org/licenses/MIT) licensed.

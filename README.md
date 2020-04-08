@@ -27,7 +27,7 @@ git clone git@github.com:christianotieno/todo-list.git
 ### Usage
 
 ```
-npm install webpack webpack-cli --save-dev
+npm install
 ```
 
 > This acrion will install webpack to the node_modules directory of this project.
@@ -41,12 +41,10 @@ npx eslint .
 ### Run the site
 
 ```
-npx webpack --watch
+npm run watch
 ```
 
 > This action will prepare your site and bundle everything together for you
-
-
 
 ## Authors
 
@@ -74,8 +72,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration.
+- Hat tip to anyone who reviewed our code.
 
 ## 📝 License
 

@@ -105,9 +105,9 @@ updateTodo.onclick = () => {
   });
 };
 
+listOfProjects.projectList.map(project => updateView(project));
 
-listOfProjects.projectList.map(project => {
-  updateView(project);
-  projectListner(listOfProjects);
-  return false;
-});
+const getStarted = addProject('Get Started');
+listOfProjects.addToProjects(getStarted);
+updateView(getStarted);
+projectListner(listOfProjects);

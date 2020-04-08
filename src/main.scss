@@ -1,0 +1,164 @@
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+.container {
+  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(2, 0, 36, 0.6)), url('./assets/img/work_table.jpg');
+    background-size: cover;
+  background-color: rgb(58, 57, 57);
+  color: white;
+  margin-top: 2%;
+}
+
+#body-header {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 10vh;
+  h3.h3 {
+  margin: 20px 0 20px;
+  text-align: center;
+}
+}
+
+li {
+  list-style: none;
+  line-height: normal;
+  margin-bottom: 2px;
+  margin-top: 5px;
+  margin-left: 0;
+  padding: 0;
+}
+
+#main-body {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  height: 100vh;
+  width: 80vw;
+  padding: 0;
+  border-top: 5%;
+  #project-input-div {
+    #project-text {
+      border-radius: 8px;
+      margin: 0;
+      height: 40px;
+      width: 100%;
+      text-align: center;
+    }
+    #project-text:focus {
+      outline: none;
+    }
+    #add-project {
+      height: 40px;
+      width: 100%;
+      margin: 5px 0;
+    }
+  }
+  button {
+    border-radius: 5px;
+    height: 50px;
+    width: 100px;
+    border-style: none;
+  }
+}
+
+#todo-list {
+  padding: 0;
+  li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 0 15px;
+    align-items: center;
+    min-height: 70px;
+    .text-wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+    .title {
+      font-size: 18px;
+    }
+    .description {
+      font-size: 15px;
+      color: rgb(59, 59, 59);
+      margin-bottom: 0;
+    }
+  }
+}
+
+.project-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+#todo-form {
+  display: none;
+  width: calc(100% - 20px);
+  margin: 0 auto;
+  padding: 10px 0 15px;
+}
+
+.form-check {
+  #add-todo,
+  #update-todo {
+    background-color: rgb(221, 221, 221);
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border-style: none;
+  }
+  #add-todo:hover,
+  #update-todo:hover {
+    background-color: rgb(182, 182, 182);
+  }
+  #add-todo:focus,
+  #update-todo:focus {
+    outline: none;
+  }
+}
+
+.toggle-project {
+  background-color: rgba(0, 0, 0, 0.5);
+  min-height: 80px;
+  padding: 15px 10px 25px;
+  .dropdown-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 50px;
+  }
+  .delete-project {
+    float: right;
+  }
+}
+
+.toggle-project:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dropdown-content {
+  display: none;
+  
+}
+#todo-empty-check p, 
+#project-empty-check p {
+  color: yellow;
+  text-align: center;
+  font-size: x-large;
+}
+
+
+.project-list {
+  font-weight: 700;
+  li:hover {
+    cursor: pointer;
+  }
+  padding: 0;
+  margin: 15px 0 0 0;
+}
+
+.d-none {
+  display: none;
+}
+
+
+button#toggle-todo-form {
+  margin: 10px;
+  width: calc(100% - 20px);
+}

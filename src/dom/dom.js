@@ -92,6 +92,9 @@ updateTodo.onclick = () => {
         updateProjectList(Number(projectId), listOfProjects);
         clearTodoField();
         toggleTodoForm();
+        todoListner(listOfProjects);
+        editTodoListner(listOfProjects);
+        checkedListner();
         listOfProjects.updateLocalStorage();
         document.getElementById('update-todo').removeAttribute('data-id');
         document.getElementById('update-todo').classList.add('d-none');

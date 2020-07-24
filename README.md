@@ -1,10 +1,10 @@
 # todo-list
 
-> Implementation of todo list with javascript dom manipulation and es6 classes.
+> Implementation of todo list with javascript dom-manipulation and es6 classes.
 
 ![screenshot](./src/assets/img/screenshot.png)
 
-Additional description about the project and its features.
+A summary description of the project and its features illustrated below.
 
 ## Built With
 
@@ -30,7 +30,7 @@ git clone git@github.com:christianotieno/todo-list.git
 npm install
 ```
 
-> This acrion will install webpack to the node_modules directory of this project.
+> This action will install Webpack to the node_modules directory of this project.
 
 ### Run tests
 
@@ -48,13 +48,13 @@ npm run watch
 
 ## Authors
 
-👤 **Author1**
+👤 **Christian Otieno**
 
 - Github: [@christianotieno](https://github.com/christianotieno)
 - Twitter: [@iamchrisotieno](https://twitter.com/iamchrisotieno)
 - Linkedin: [Christian Otieno](https://linkedin.com/linkedinhandle)
 
-👤 **Author2**
+👤 **Ermin Cahtarevic**
 
 - Github: [@ermin-cahtarevic](https://github.com/ermin-cahtarevic)
 - Twitter: [@ErminCahtarevic](https://twitter.com/ErminCahtarevic)
